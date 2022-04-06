@@ -16,10 +16,10 @@ class User(BaseModel):
     class Meta:
         db_table = 'users'
 
-class IpDetail(BaseModel):
+class Task(BaseModel):
     ip = CharField(null=False,  max_length=255)
     details = CharField(null=False,  max_length=255)
 
     class Meta:
-        db_table = 'ip_details'
+        db_table = 'tasks'
 

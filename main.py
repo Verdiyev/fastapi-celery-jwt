@@ -24,7 +24,7 @@ from fastapi.openapi.utils import get_openapi
 
 
 db.connect()
-db.create_tables([models.User, models.IpDetail])
+db.create_tables([models.User, models.Task])
 db.close()
 
 
@@ -110,13 +110,13 @@ def refresh(Authorize: AuthJWT = Depends()):
     return {"access_token": new_access_token}
 
 @app.post("/api/v1/task")
-async def create_task(ip: schemas.Ip):
+async def create_task(ip: schemas.Task):
     
     
     task = get_ip_details.delay(ip.address)
 
     result = task.get()
-    ip_obj = models.IpDetail(
+    ip_obj = models.Task(
         ip=ip.address,
         details=result
     )

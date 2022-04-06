@@ -29,7 +29,7 @@ class User(UserBase):
         orm_mode = True
         getter_dict = PeeweeGetterDict
 
-class Ip(BaseModel):
+class Task(BaseModel):
     address: str
 
 
