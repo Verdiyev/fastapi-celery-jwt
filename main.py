@@ -111,8 +111,7 @@ def refresh(Authorize: AuthJWT = Depends()):
 
 @app.post("/api/v1/task")
 async def create_task(ip: schemas.Ip):
-    # before creating a task we can check if we already got the details in our db
-    # but honestly i was lazy to do that as this project is only for testing purposes
+    
     
     task = get_ip_details.delay(ip.address)
 
